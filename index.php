@@ -1,13 +1,38 @@
-<?php
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Jetbrains License ID Service</title>
+</head>
+<body>
+<h3>Jetbrains License ID Service</h3>
+<input type="email" id="email" placeholder="E-mail"/>
+<input type="text" id="password" placeholder="Password" />
+<button id="getLicenseId" onclick="getLicenseId()">Get License ID</button>
+<br><br>
+<div id="result"></div>
 
-$url = $_GET['url'];
+<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+<script>
+    function getLicenseId(){
+        let email = jQuery('#email').val();
+        let password = jQuery('#password').val();
 
-exec('python3 scrape.py ' . $url, $output, $result);
-
-if(count($output) == 1){
-    $title = $output[0];
-
-    print($url.' sitesinin title değeri: ' . $title);
-}
-
-?>
+        $.ajax({
+            url: '/jetbrains-service.php',
+            method: 'POST',
+            data: {email,password},
+            beforeSend: function(){
+                $('#result').text('Loading...');
+            },
+            success: function(response){
+                $('#result').text('LICENSE ID: ' + response);
+            }
+        })
+    }
+</script>
+</body>
+</html>
