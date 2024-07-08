@@ -13,7 +13,7 @@ password = sys.argv[2]
 
 url = 'https://account.jetbrains.com/login'
 
-browser = webdriver.Firefox()
+browser = webdriver.Chrome()
 browser.get(url)
 
 browser.find_element(By.XPATH, '//*[@id="username"]').send_keys(email)

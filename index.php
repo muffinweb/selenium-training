@@ -10,7 +10,7 @@
 <body>
 <h3>Jetbrains License ID Service</h3>
 <input type="email" id="email" placeholder="E-mail"/>
-<input type="text" id="password" placeholder="Password" />
+<input type="password" id="password" placeholder="Password" />
 <button id="getLicenseId" onclick="getLicenseId()">Get License ID</button>
 <br><br>
 <div id="result"></div>
