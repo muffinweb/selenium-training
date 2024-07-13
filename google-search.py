@@ -2,13 +2,17 @@ from datetime import time
 
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.options import Options
 from selenium.webdriver import ActionChains
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 import sys
 
+options = Options()
+options.add_experimental_option('detach', True)
 
-driver = webdriver.Firefox()
+
+driver = webdriver.Chrome(options=options)
 driver.get("https://google.com")
 searchValue = sys.argv[1]
 
@@ -33,10 +37,3 @@ elementsWaitedFor = wait.until(expected_conditions.presence_of_all_elements_loca
 
 for element in elementsWaitedFor:
     print(element.text)
-
-driver.quit()
-
-
-
-
-
