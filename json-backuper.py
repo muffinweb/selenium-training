@@ -3,8 +3,7 @@ import json
 load_backup = open("backup.json", "r")
 backup_content = load_backup.read()
 load_backup.close()
-
-data = json.loads(backup_content)
+jsonBackup = json.loads(backup_content)
 
 newDatas = [
     {
@@ -22,6 +21,6 @@ for item in newDatas:
 
 jsonData = json.dumps(data)
 
-open("backup.json", "w").write(jsonData)
 
+open("backup.json", "w").write(jsonData)
 print("Done successfully")
