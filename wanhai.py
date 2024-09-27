@@ -17,9 +17,9 @@ try:
     # Selenium Driver Options0
     options = Options()
     options.add_experimental_option('detach', True)
-    # options.add_argument('--no-sandbox')
-    # options.add_argument("--headless")
-    # options.add_argument("--disable-dev-shm-usage")
+    options.add_argument('--no-sandbox')
+    options.add_argument("--headless")
+    options.add_argument("--disable-dev-shm-usage")
 
     # ------------------------------------------------------ #
 
@@ -28,7 +28,7 @@ try:
 
     # Optional Block - driver instance will be instantiate thorugh webDriver Manager
     driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
-    # driver = webdriver.Chrome(options=options)
+    # driver = webdriver.Firefox(options=options)
 
     driver.get(serviceURL)
 
