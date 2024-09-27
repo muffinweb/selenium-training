@@ -13,7 +13,19 @@ browser.get('https://myhttpheader.com')
 # waitFor = WebDriverWait(browser, 10)
 # SearchTextBox = waitFor.until(EC.visibility_of_element_located((By.XPATH, "//*[@id=\"APjFqb\"]")))
 
-browser.save_screenshot('fullscreen2.png')
+browser.save_screenshot('fullscreen3.png')
+
+# current window
+firstWindow = browser.current_window_handle
+
+browser.switch_to.new_window('tab')
+browser.get('https://eksisozluk.com')
+
+# eksisozluk tab
+secondWindow = browser.current_window_handle
+
+browser.save_screenshot('eksisozluk2.png')
+
 
 # pageSource = browser.page_source
 # print(pageSource)
