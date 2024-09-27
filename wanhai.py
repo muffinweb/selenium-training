@@ -4,6 +4,11 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver import ActionChains
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
+
+# Optional Block to speficy driver through webdriver-manager
+from selenium.webdriver.chrome.service import Service as ChromeService
+from webdriver_manager.chrome import ChromeDriverManager
+
 import sys
 
 # ------------------------------------------------------ #
@@ -21,7 +26,10 @@ try:
     # Service URL
     serviceURL = "https://www.wanhai.com/views/Main.xhtml"
 
-    driver = webdriver.Chrome(options=options)
+    # Optional Block - driver instance will be instantiate thorugh webDriver Manager
+    driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
+    # driver = webdriver.Chrome(options=options)
+
     driver.get(serviceURL)
 
     # Current Window
@@ -81,4 +89,3 @@ try:
     print(driver.page_source)
 except Exception as e:
     print(e)
-
